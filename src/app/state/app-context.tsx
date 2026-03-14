@@ -37,7 +37,7 @@ type Action =
 const coverImage = PlaceHolderImages.find(img => img.id === 'event-cover')!;
 const initialState: AppState = {
   eventDetails: {
-    name: 'Midnight Bloom',
+    name: 'Vision Hack',
     date: 'SAT, OCT 26',
     time: '9:00 PM',
     venue: 'The Void',
