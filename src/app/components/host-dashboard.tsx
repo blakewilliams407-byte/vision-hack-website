@@ -7,12 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
-import { Edit, Power, Users, Sparkles, Clock, User, Check, X, Loader2 } from "lucide-react";
+import { Edit, Users, Sparkles, Clock, User, Check, X, Loader2 } from "lucide-react";
 import Link from "next/link";
-import { useState, useTransition, useEffect } from "react";
+import { useState, useEffect, useActionState } from "react";
 import { ShowUpLogo } from "./icons";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormStatus } from "react-dom";
 import { createVibeDescription, type VibeGenerationState } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 
@@ -81,7 +81,7 @@ function VibeGenerator() {
   const [open, setOpen] = useState(false);
 
   const initialState: VibeGenerationState = { message: null, description: null };
-  const [formState, formAction] = useFormState(createVibeDescription, initialState);
+  const [formState, formAction] = useActionState(createVibeDescription, initialState);
   const { pending } = useFormStatus();
 
   useEffect(() => {
